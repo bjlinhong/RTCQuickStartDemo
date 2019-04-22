@@ -7,9 +7,10 @@
 //
 
 #import "AppDelegate.h"
-#import <RongIMLib/RongIMLib.h>
+#import <RongRTCLib/RongRTCLib.h>
 
 @interface AppDelegate ()
+
 
 @end
 
@@ -18,7 +19,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    [[RCIMClient sharedRCIMClient] initWithAppKey:@"appKey"];
+    
+    [[RCIMClient sharedRCIMClient] initWithAppKey:@""];
     RCIMClient.sharedRCIMClient.logLevel = RC_Log_Level_Info;
     
     return YES;
