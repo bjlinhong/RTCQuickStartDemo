@@ -308,7 +308,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-RTC-Quick-Start-iOS/Pods-RTC-Quick-Start-iOS-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-RTC-Quick-Start-iOS/Pods-RTC-Quick-Start-iOS-resources.sh",
 				"${PODS_ROOT}/RongCloudIM/RongCloudIM/RCConfig.plist",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -317,7 +317,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RTC-Quick-Start-iOS/Pods-RTC-Quick-Start-iOS-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RTC-Quick-Start-iOS/Pods-RTC-Quick-Start-iOS-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6D14AC183E0C4F1DC4D33B6F /* [CP] Check Pods Manifest.lock */ = {

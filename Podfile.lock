@@ -1,10 +1,11 @@
 PODS:
-  - RongCloudIM/IMLib (2.9.14)
-  - RongRTCLib (3.0.1):
-    - RongCloudIM/IMLib (~> 2.9.14)
+  - RongCloudIM/IMLib (2.9.18)
+  - RongRTCLib (3.0.6):
+    - RongCloudIM/IMLib (~> 2.9.18)
 
 DEPENDENCIES:
-  - RongRTCLib (~> 3.0.1)
+  - RongCloudIM/IMLib (~> 2.9.16)
+  - RongRTCLib (~> 3.0.6)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -12,9 +13,9 @@ SPEC REPOS:
     - RongRTCLib
 
 SPEC CHECKSUMS:
-  RongCloudIM: 7283628517deaf3500c004d207b2db9836458163
-  RongRTCLib: 897b1e293f5345c3b6a951beffd3dd39979fe1e9
+  RongCloudIM: 827c498ea45c93b389b4b57ececc528f2601ee1e
+  RongRTCLib: 9b1f0e9f52e0ddcbd94c8bae382916d781ef6d6a
 
-PODFILE CHECKSUM: b73f08b9a0b4ce2f471f0aa519091edec7e0bc16
+PODFILE CHECKSUM: 12266af3e490dc0eacca4674d828871a39435d6f
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.1
