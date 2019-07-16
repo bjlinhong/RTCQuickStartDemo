@@ -36,6 +36,10 @@
             [room.localUser publishDefaultAVStream:^(BOOL isSuccess, RongRTCCode desc) {
                 
             }];
+            
+            // 非常重要，非常重要，非常重要
+            // 加入房间后如果房间内有人，remoteUsers 会生效，此时可以直接订阅房间的远端用户的资源
+            // TODO ...
         }];
         
     } error:^(RCConnectErrorCode status) {
@@ -46,6 +50,11 @@
 }
 
 
+/**
+ 收到房间事件，有人发布资源
+
+ @param streams 资源信息
+ */
 -(void)didPublishStreams:(NSArray<RongRTCAVInputStream *> *)streams{
     
     // 订阅资源
