@@ -26,12 +26,30 @@ target 'SealQuery' do
   pod 'RongSignalingKit', '~> 1.0.0'
   # Pods for RTC-Quick-Start-iOS
 
-  target 'RTC-Quick-Start-iOSTests' do
+  target 'SealQueryTests' do
     inherit! :search_paths
     # Pods for testing
   end
 
-  target 'RTC-Quick-Start-iOSUITests' do
+  target 'SealQueryUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
+
+target 'SealCall' do
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+  pod 'RongSignalingKit', '~> 1.0.0'
+  # Pods for RTC-Quick-Start-iOS
+
+  target 'SealCallTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'SealCallUITests' do
     inherit! :search_paths
     # Pods for testing
   end
