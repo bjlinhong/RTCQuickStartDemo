@@ -1,7 +1,7 @@
 PODS:
-  - RongCloudIM/IMLib (4.0.0)
-  - RongRTCLib (4.0.0):
-    - RongCloudIM/IMLib (~> 4.0.0)
+  - RongCloudIM/IMLib (4.0.3)
+  - RongRTCLib (4.0.3):
+    - RongCloudIM/IMLib (~> 4.0.3)
 
 DEPENDENCIES:
   - RongRTCLib
@@ -12,8 +12,8 @@ SPEC REPOS:
     - RongRTCLib
 
 SPEC CHECKSUMS:
-  RongCloudIM: 239687f404f6a46b5c8e696d4b2d2ec3fedf2485
-  RongRTCLib: 3703c7e7c1a56998604cbbfa9a4730bc472f8b13
+  RongCloudIM: 622c480773925e0cb8c65705d6ae161b28cdcc6f
+  RongRTCLib: 6ce9e8bd86cdea35a4b3cd2d7368e69c18e35428
 
 PODFILE CHECKSUM: ab2ecbd0a7e5f194eb167bccddc522602df8e40a
 

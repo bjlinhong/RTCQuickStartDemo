@@ -32,7 +32,7 @@
                    room.delegate = self;
                    self.room = room;
                    // 发布资源
-                   [room.localUser publishDefaultStream:^(BOOL isSuccess, RCRTCCode desc) {
+                   [room.localUser publishDefaultStreams:^(BOOL isSuccess, RCRTCCode desc) {
                    }];
                  }];
                }
