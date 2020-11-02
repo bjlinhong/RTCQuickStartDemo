@@ -14,11 +14,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    
-    [[RCIMClient sharedRCIMClient] initWithAppKey:@""];
-    RCIMClient.sharedRCIMClient.logLevel = RC_Log_Level_Info;
-    
+    // Override point for customization after application launch.    
     return YES;
 }
 
