@@ -12,6 +12,7 @@
 		17CBEB5B22C9FDF60027D85C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17CBEB5A22C9FDF60027D85C /* Assets.xcassets */; };
 		17CBEB5E22C9FDF60027D85C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17CBEB5C22C9FDF60027D85C /* LaunchScreen.storyboard */; };
 		17CBEB6122C9FDF60027D85C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 17CBEB6022C9FDF60027D85C /* main.m */; };
+		393B436C25E61C05009377D7 /* RCRTCStatusReportHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 393B436B25E61C05009377D7 /* RCRTCStatusReportHandler.m */; };
 		5ADEBB02254A59F20039372A /* AppID.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ADEBAFE254A59F20039372A /* AppID.m */; };
 		5ADEBB03254A59F20039372A /* VideoRoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ADEBB01254A59F20039372A /* VideoRoomViewController.m */; };
 		5ADEBB06254A5A790039372A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5ADEBB05254A5A790039372A /* README.md */; };
@@ -26,6 +27,8 @@
 		17CBEB5D22C9FDF60027D85C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		17CBEB5F22C9FDF60027D85C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17CBEB6022C9FDF60027D85C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		393B436A25E61C05009377D7 /* RCRTCStatusReportHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCRTCStatusReportHandler.h; sourceTree = "<group>"; };
+		393B436B25E61C05009377D7 /* RCRTCStatusReportHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCRTCStatusReportHandler.m; sourceTree = "<group>"; };
 		48F2F56624A0A370004752F9 /* RTCQuickStartDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RTCQuickStartDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ADEBAFE254A59F20039372A /* AppID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppID.m; sourceTree = "<group>"; };
 		5ADEBAFF254A59F20039372A /* VideoRoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoRoomViewController.h; sourceTree = "<group>"; };
@@ -67,6 +70,8 @@
 				5ADEBAFE254A59F20039372A /* AppID.m */,
 				5ADEBAFF254A59F20039372A /* VideoRoomViewController.h */,
 				5ADEBB01254A59F20039372A /* VideoRoomViewController.m */,
+				393B436A25E61C05009377D7 /* RCRTCStatusReportHandler.h */,
+				393B436B25E61C05009377D7 /* RCRTCStatusReportHandler.m */,
 				5ADEBB04254A5A140039372A /* Supporting Files */,
 			);
 			path = RTCQuickStartDemo;
@@ -115,6 +120,7 @@
 				17CBEB4B22C9FDF40027D85C /* Frameworks */,
 				17CBEB4C22C9FDF40027D85C /* Resources */,
 				9209C68757B24FA9721401E3 /* [CP] Copy Pods Resources */,
+				81E826138F49BC24624DDCF5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -172,6 +178,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		81E826138F49BC24624DDCF5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RTCQuickStartDemo/Pods-RTCQuickStartDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RTCQuickStartDemo/Pods-RTCQuickStartDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RTCQuickStartDemo/Pods-RTCQuickStartDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9209C68757B24FA9721401E3 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -219,6 +242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5ADEBB02254A59F20039372A /* AppID.m in Sources */,
+				393B436C25E61C05009377D7 /* RCRTCStatusReportHandler.m in Sources */,
 				17CBEB6122C9FDF60027D85C /* main.m in Sources */,
 				17CBEB5322C9FDF40027D85C /* AppDelegate.m in Sources */,
 				5ADEBB03254A59F20039372A /* VideoRoomViewController.m in Sources */,
