@@ -95,11 +95,15 @@
     }
     
     
-    //弱网提示逻辑
-    const CGFloat audioLossBaseline = 0.3;   // 音频丢包基准新
-    const CGFloat videoLossBaseLine = 0.15;  // 视频丢包基准线
-    const NSInteger cycleLength = 10;        // 统计周期长度
-    const NSInteger timesThreshold = 5;      // 次数阈值
+    /*
+     弱网提示逻辑
+     通话中, 监控每个参会者的网络丢包率, 1个监控周期为10秒,
+     在1个监控周期内某人的音频丢包出现5次大于 30% 或 视频丢包率出现5次大于15%时, 需将此人认定为弱网
+     */
+    const CGFloat audioLossBaseline = 0.3;   // 音频丢包基准新(30%)
+    const CGFloat videoLossBaseLine = 0.15;  // 视频丢包基准线(15%)
+    const NSInteger cycleLength = 10;        // 统计周期长度(秒)
+    const NSInteger timesThreshold = 5;      // 次数阈值(次)
     
     static NSInteger triggerTimes = 0;
     triggerTimes++;
