@@ -33,12 +33,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self initializeRCIMCoreClient];
     [self initializeRCRTCEngine];
     [self setupLocalVideoView];
     [self setupRemoteVideoView];
     [self setupRoomMenuView];
-    [self joinRoom];
+    [self initializeRCIMCoreClient];
 }
 
 - (void)initializeRCIMCoreClient {
@@ -49,6 +48,7 @@
         NSLog(@"MClient dbOpened code: %zd", code);
     } success:^(NSString *userId) {
         NSLog(@"IM连接成功userId: %@", userId);
+        [self joinRoom];
     } error:^(RCConnectErrorCode status) {
         NSLog(@"IM连接失败errorCode: %ld", (long)status);
     }];
@@ -114,9 +114,8 @@
    3.加入房间时如果已经有远端用户在房间中, 需要订阅远端流
  */
 - (void)joinRoom {
-    __weak typeof(self) weakSelf = self;
-    [[RCRTCEngine sharedInstance] joinRoom:RoomId completion:^(RCRTCRoom * _Nullable room, RCRTCCode code) {
-        __strong typeof(weakSelf) self = weakSelf;
+    [[RCRTCEngine sharedInstance] joinRoom:RoomId
+                                completion:^(RCRTCRoom * _Nullable room, RCRTCCode code) {
         if (code == RCRTCCodeSuccess) {
             //设置房间代理
             self.room = room;
@@ -125,6 +124,8 @@
             // 1.本地视频采集
             [[self.engine defaultVideoStream] setVideoView:self.localView];
             [[self.engine defaultVideoStream] startCapture];
+            
+            [self.engine enableSpeaker:YES];
             
             // 2.发布本地视频流
             [room.localUser publishDefaultStreams:^(BOOL isSuccess, RCRTCCode desc) {
@@ -162,14 +163,11 @@
 
 //挂断
 - (void)exitRoom {
-    //取消本地发布
-    [self.room.localUser unpublishDefaultStreams:^(BOOL isSuccess, RCRTCCode desc) {}];
     //关闭摄像头采集
     [self.engine.defaultVideoStream stopCapture];
     [self.remoteView removeFromSuperview];
     //退出房间
-    [self.engine leaveRoom:RoomId
-                completion:^(BOOL isSuccess, RCRTCCode code) {
+    [self.engine leaveRoom:^(BOOL isSuccess, RCRTCCode code) {
         if (isSuccess && code == RCRTCCodeSuccess) {
             NSLog(@"退出房间成功code:%ld",(long)code);
         }
@@ -190,10 +188,6 @@
 }
 
 - (void)subscribeRemoteResource:(NSArray<RCRTCInputStream *> *)streams {
-    // 订阅房间中远端用户音视频流资源
-    [self.room.localUser subscribeStream:streams
-                             tinyStreams:nil
-                              completion:^(BOOL isSuccess, RCRTCCode desc) {}];
     // 创建并设置远端视频预览视图
     for (RCRTCInputStream *stream in streams) {
         if (stream.mediaType == RTCMediaTypeVideo) {
@@ -201,21 +195,26 @@
             [self.remoteView setHidden:NO];
         }
     }
+    
+    // 订阅房间中远端用户音视频流资源
+    [self.room.localUser subscribeStream:streams
+                             tinyStreams:nil
+                              completion:^(BOOL isSuccess, RCRTCCode desc) {}];
 }
 
 #pragma mark - Lazy Loading
 - (UIView *)menuView {
     if (!_menuView) {
         _menuView = [UIView new];
-        UIButton *muteBtn = [UIButton buttonWithType:0];
-        [muteBtn setImage:[UIImage imageNamed:@"mute"] forState:0];
+        UIButton *muteBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [muteBtn setImage:[UIImage imageNamed:@"mute"] forState:UIControlStateNormal];
         [muteBtn setImage:[UIImage imageNamed:@"mute_hover"] forState:UIControlStateSelected];
         [muteBtn addTarget:self action:@selector(micMute:) forControlEvents:UIControlEventTouchUpInside];
-        UIButton *exitBtn = [UIButton buttonWithType:0];
-        [exitBtn setImage:[UIImage imageNamed:@"hang_up"] forState:0];
+        UIButton *exitBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [exitBtn setImage:[UIImage imageNamed:@"hang_up"] forState:UIControlStateNormal];
         [exitBtn addTarget:self action:@selector(exitRoom) forControlEvents:UIControlEventTouchUpInside];
-        UIButton *changeBtn = [UIButton buttonWithType:0];
-        [changeBtn setImage:[UIImage imageNamed:@"camera"] forState:0];
+        UIButton *changeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [changeBtn setImage:[UIImage imageNamed:@"camera"] forState:UIControlStateNormal];
         [changeBtn setImage:[UIImage imageNamed:@"camera_hover"] forState:UIControlStateSelected];
         [changeBtn addTarget:self action:@selector(changeCamera:) forControlEvents:UIControlEventTouchUpInside];
         [_menuView addSubview:muteBtn];
